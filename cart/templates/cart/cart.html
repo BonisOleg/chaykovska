@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}CHAYKOVSKA - {% trans "Shopping Cart" %}{% endblock %}
+
+{% block content %}
+<div class="cart-page">
+    <div class="cart-items">
+        {% if items %}
+            <h1>{% trans "Shopping Cart" %}</h1>
+            
+            {% for item in items %}
+                <div class="cart-item">
+                    {% if item.product.images.first %}
+                        <img src="{{ item.product.images.first.image.url }}" 
+                             alt="{{ item.product.name }}" 
+                             class="cart-item-image">
+                    {% endif %}
+                    
+                    <div class="cart-item-info">
+                        <h3 class="cart-item-name">{{ item.product.name }}</h3>
+                        <p class="cart-item-price">{{ item.price }} ₴</p>
+                        
+                        <div class="cart-item-controls">
+                            <form class="cart-update-form" hx-post="{% url 'cart:update' item.product.id %}" 
+                                  hx-target="closest .cart-item"
+                                  hx-swap="outerHTML"
+                                  hx-trigger="change from:find input[name='quantity']">
+                                {% csrf_token %}
+                                <input type="number" 
+                                       name="quantity" 
+                                       value="{{ item.quantity }}" 
+                                       min="1" 
+                                       class="quantity-input">
+                            </form>
+                            
+                            <button class="btn-remove" 
+                                    hx-post="{% url 'cart:remove' item.product.id %}"
+                                    hx-target="closest .cart-item"
+                                    hx-swap="outerHTML swap:1s">
+                                {% trans "Remove" %}
+                            </button>
+                        </div>
+                        
+                        <p class="cart-item-subtotal">
+                            {% trans "Subtotal" %}: {{ item.subtotal }} ₴
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="cart-empty">
+                <h2>{% trans "Your cart is empty" %}</h2>
+                <p>{% trans "Start shopping to add items to your cart." %}</p>
+                <a href="{% url 'catalog:catalog' %}">{% trans "Continue Shopping" %}</a>
+            </div>
+        {% endif %}
+    </div>
+    
+    {% if items %}
+        <div class="cart-summary">
+            <div class="cart-summary-box" id="cart-summary">
+                <div class="summary-row">
+                    <span>{% trans "Subtotal" %}</span>
+                    <span>{{ total }} ₴</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>{% trans "Shipping" %}</span>
+                    <span>{% trans "TBD" %}</span>
+                </div>
+                
+                <div class="summary-row total">
+                    <span>{% trans "Total" %}</span>
+                    <span>{{ total }} ₴</span>
+                </div>
+                
+                <a href="{% url 'cart:checkout' %}" class="btn-checkout">
+                    {% trans "Proceed to Checkout" %}
+                </a>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

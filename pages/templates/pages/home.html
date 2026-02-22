@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}CHAYKOVSKA - {% trans "Home" %}{% endblock %}
+
+{% block content %}
+<div class="mosaic-container">
+    {% for cell in mosaic_cells %}
+        <div class="mosaic-cell {% if cell.size_type == 'full_width' %}full-width{% elif cell.size_type == 'double_height' %}double-height{% endif %}"
+             {% if cell.link %}data-link="{{ cell.link }}"{% endif %}>
+            <div class="mosaic-images">
+                <img src="{{ cell.image_1.url }}" alt="{% trans 'Image 1' %}" class="mosaic-image active" loading="lazy">
+                <img src="{{ cell.image_2.url }}" alt="{% trans 'Image 2' %}" class="mosaic-image" loading="lazy">
+                <img src="{{ cell.image_3.url }}" alt="{% trans 'Image 3' %}" class="mosaic-image" loading="lazy">
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

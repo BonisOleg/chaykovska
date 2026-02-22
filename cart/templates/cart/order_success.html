@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}CHAYKOVSKA - {% trans "Order Confirmed" %}{% endblock %}
+
+{% block content %}
+<div class="order-success-container">
+    {% if order %}
+        <h1>✓ {% trans "Thank You!" %}</h1>
+        <p class="order-success-message">
+            {% trans "Your order has been confirmed." %}
+        </p>
+        
+        <div class="order-details-box">
+            <h3>{% trans "Order Details" %}</h3>
+            <p><strong>{% trans "Order ID" %}:</strong> #{{ order.id }}</p>
+            <p><strong>{% trans "Name" %}:</strong> {{ order.first_name }} {{ order.last_name }}</p>
+            <p><strong>{% trans "Email" %}:</strong> {{ order.email }}</p>
+            <p><strong>{% trans "Phone" %}:</strong> {{ order.phone }}</p>
+            <p><strong>{% trans "Delivery Address" %}:</strong> {{ order.address }}</p>
+            <p><strong>{% trans "Status" %}:</strong> {{ order.get_status_display }}</p>
+            
+            <h4>{% trans "Items" %}</h4>
+            <ul>
+                {% for item in order.items.all %}
+                    <li>{{ item.product.name }} x {{ item.quantity }} = {{ item.get_subtotal }} ₴</li>
+                {% endfor %}
+            </ul>
+            
+            <p><strong>{% trans "Total" %}:</strong> {{ order.get_total }} ₴</p>
+        </div>
+        
+        <p class="order-confirmation-text">
+            {% trans "A confirmation email has been sent to" %} <strong>{{ order.email }}</strong>
+        </p>
+        
+        <a href="{% url 'pages:home' %}" class="btn-back-home">
+            {% trans "Back to Home" %}
+        </a>
+    {% else %}
+        <h1>{% trans "Order Not Found" %}</h1>
+    {% endif %}
+</div>
+{% endblock %}

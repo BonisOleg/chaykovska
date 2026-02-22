@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2026 CHAYKOVSKA. {% trans "All rights reserved." %}</p>
+        {% if site_settings.email %}
+            <p><a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></p>
+        {% endif %}
+    </div>
+</footer>

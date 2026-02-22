@@ -1,0 +1,165 @@
+/* ============================================================================
+   RESPONSIVE.CSS - Mobile-First Breakpoints
+   ============================================================================ */
+
+/* Mobile: 320px - 767px */
+@media (max-width: 767px) {
+    :root {
+        --spacing-lg: 16px;
+        --spacing-2xl: 24px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    main.main-content {
+        padding-top: var(--header-height);
+    }
+
+    .header-right {
+        gap: var(--spacing-sm);
+    }
+
+    .header-phone {
+        display: none;
+    }
+
+    .language-selector {
+        margin-left: auto;
+    }
+
+    .lang-select {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Touch interaction: touch-action for mosaic */
+    .mosaic-cell {
+        touch-action: pan-y;
+        overscroll-behavior: none;
+    }
+
+    /* Ensure 44px minimum tap targets */
+    button:not(.burger-menu), a:not(.nav-btn), input[type="button"], input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --spacing-2xl: 40px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    main.main-content {
+        padding-top: var(--header-height);
+    }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+    main.main-content {
+        padding-top: var(--header-height);
+    }
+}
+
+/* Large Desktop: 1440px+ */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* Very small phones: 320px - 480px */
+@media (max-width: 480px) {
+    :root {
+        --spacing-md: 12px;
+        --spacing-lg: 14px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    body {
+        font-size: 0.95rem;
+    }
+
+    .header-logo-text {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Landscape orientation on small screens */
+@media (max-width: 767px) and (orientation: landscape) {
+    main.main-content {
+        padding-top: calc(var(--header-height) - 10px);
+    }
+
+    .mosaic-container,
+    .mosaic-cell {
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
+/* Supports dark mode (optional future enhancement) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #1a1a1a;
+        --color-text: #ffffff;
+        --color-text-light: #b0b0b0;
+        --color-accent: #ffffff;
+        --color-border: #333333;
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.01ms;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+    :root {
+        --color-border: #000000;
+    }
+
+    .tab-btn.active {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,45 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>{% block title %}CHAYKOVSKA - {% trans "Luxury Fashion" %}{% endblock %}</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/mosaic.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/catalog.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/contacts.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/product-detail.css' %}">
+    {% block extra_css %}{% endblock %}
+    
+    <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+    <script src="{% static 'core/js/htmx-config.js' %}"></script>
+</head>
+<body>
+    {% include 'partials/header.html' %}
+    
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    
+    {% include 'partials/footer.html' %}
+    
+    {% load static %}
+    <script src="{% static 'core/js/menu.js' %}"></script>
+    <script src="{% static 'core/js/mosaic.js' %}"></script>
+    <script src="{% static 'core/js/cart.js' %}"></script>
+    <script src="{% static 'core/js/lang.js' %}"></script>
+    <script src="{% static 'core/js/tabs.js' %}"></script>
+    <script src="{% static 'core/js/product-detail.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

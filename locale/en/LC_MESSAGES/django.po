@@ -1,0 +1,340 @@
+# English translations for chaykovska project.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the chaykovska project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-07 15:11+0200\n"
+"PO-Revision-Date: 2026-02-07 15:11+0200\n"
+"Last-Translator: Full Name <email@example.com>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cart/forms.py:13
+msgid "First Name"
+msgstr "First Name"
+
+#: cart/forms.py:17
+msgid "Last Name"
+msgstr "Last Name"
+
+#: cart/forms.py:21
+msgid "+380 XX XXX XXXX"
+msgstr "+380 XX XXX XXXX"
+
+#: cart/forms.py:25
+msgid "your@email.com"
+msgstr "your@email.com"
+
+#: cart/forms.py:29
+msgid "Delivery address"
+msgstr "Delivery address"
+
+#: cart/models.py:9
+msgid "New"
+msgstr "New"
+
+#: cart/models.py:10
+msgid "Processing"
+msgstr "Processing"
+
+#: cart/models.py:11
+msgid "Shipped"
+msgstr "Shipped"
+
+#: cart/models.py:12
+msgid "Delivered"
+msgstr "Delivered"
+
+#: cart/views.py:40
+msgid "Product not found"
+msgstr "Product not found"
+
+#: cart/views.py:125
+#, python-brace-format
+msgid ""
+"\n"
+"    Thank you for your order!\n"
+"    \n"
+"    Order ID: {order_id}\n"
+"    Name: {name}\n"
+"    Email: {email}\n"
+"    Phone: {phone}\n"
+"    Address: {address}\n"
+"    \n"
+"    Items:\n"
+"    "
+msgstr ""
+"\n"
+"    Thank you for your order!\n"
+"    \n"
+"    Order ID: {order_id}\n"
+"    Name: {name}\n"
+"    Email: {email}\n"
+"    Phone: {phone}\n"
+"    Address: {address}\n"
+"    \n"
+"    Items:\n"
+"    "
+
+#: pages/models.py:11
+msgid "Half Width (1 col)"
+msgstr "Half Width (1 col)"
+
+#: pages/models.py:12
+msgid "Full Width (2 cols)"
+msgstr "Full Width (2 cols)"
+
+#: pages/models.py:13
+msgid "Double Height (2 rows)"
+msgstr "Double Height (2 rows)"
+
+#: pages/models.py:62
+msgid "Brand"
+msgstr "Brand"
+
+#: pages/models.py:63
+msgid "Fabrics"
+msgstr "Fabrics"
+
+#: pages/models.py:64
+msgid "Production"
+msgstr "Production"
+
+#: cart/templates/cart/cart.html:4 cart/templates/cart/cart.html:10
+msgid "Shopping Cart"
+msgstr "Shopping Cart"
+
+#: cart/templates/cart/cart.html:41
+msgid "Remove"
+msgstr "Remove"
+
+#: cart/templates/cart/cart.html:46 cart/templates/cart/cart.html:64
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: cart/templates/cart/cart.html:53
+msgid "Your cart is empty"
+msgstr "Your cart is empty"
+
+#: cart/templates/cart/cart.html:54
+msgid "Start shopping to add items to your cart."
+msgstr "Start shopping to add items to your cart."
+
+#: cart/templates/cart/cart.html:55
+msgid "Continue Shopping"
+msgstr "Continue Shopping"
+
+#: cart/templates/cart/cart.html:69
+msgid "Shipping"
+msgstr "Shipping"
+
+#: cart/templates/cart/cart.html:70
+msgid "TBD"
+msgstr "TBD"
+
+#: cart/templates/cart/cart.html:74 cart/templates/cart/order_success.html:30
+msgid "Total"
+msgstr "Total"
+
+#: cart/templates/cart/cart.html:79
+msgid "Proceed to Checkout"
+msgstr "Proceed to Checkout"
+
+#: cart/templates/cart/checkout.html:4 cart/templates/cart/checkout.html:8
+msgid "Checkout"
+msgstr "Checkout"
+
+#: cart/templates/cart/checkout.html:62
+msgid "Complete Order"
+msgstr "Complete Order"
+
+#: cart/templates/cart/checkout.html:66
+msgid "Back to Cart"
+msgstr "Back to Cart"
+
+#: cart/templates/cart/order_success.html:4
+msgid "Order Confirmed"
+msgstr "Order Confirmed"
+
+#: cart/templates/cart/order_success.html:9
+msgid "Thank You!"
+msgstr "Thank You!"
+
+#: cart/templates/cart/order_success.html:11
+msgid "Your order has been confirmed."
+msgstr "Your order has been confirmed."
+
+#: cart/templates/cart/order_success.html:15
+msgid "Order Details"
+msgstr "Order Details"
+
+#: cart/templates/cart/order_success.html:16
+msgid "Order ID"
+msgstr "Order ID"
+
+#: cart/templates/cart/order_success.html:17
+msgid "Name"
+msgstr "Name"
+
+#: cart/templates/cart/order_success.html:18
+#: pages/templates/pages/contacts.html:29
+msgid "Email"
+msgstr "Email"
+
+#: cart/templates/cart/order_success.html:19
+#: pages/templates/pages/contacts.html:22
+msgid "Phone"
+msgstr "Phone"
+
+#: cart/templates/cart/order_success.html:20
+msgid "Delivery Address"
+msgstr "Delivery Address"
+
+#: cart/templates/cart/order_success.html:21
+msgid "Status"
+msgstr "Status"
+
+#: cart/templates/cart/order_success.html:23
+msgid "Items"
+msgstr "Items"
+
+#: cart/templates/cart/order_success.html:34
+msgid "A confirmation email has been sent to"
+msgstr "A confirmation email has been sent to"
+
+#: cart/templates/cart/order_success.html:38
+msgid "Back to Home"
+msgstr "Back to Home"
+
+#: cart/templates/cart/order_success.html:41
+msgid "Order Not Found"
+msgstr "Order Not Found"
+
+#: catalog/templates/catalog/catalog.html:4
+#: templates/partials/menu_overlay.html:10
+msgid "Catalog"
+msgstr "Catalog"
+
+#: catalog/templates/catalog/catalog.html:9
+msgid "Our Collection"
+msgstr "Our Collection"
+
+#: catalog/templates/catalog/catalog.html:23
+msgid "No image"
+msgstr "No image"
+
+#: catalog/templates/catalog/catalog.html:39
+#: catalog/templates/catalog/product_detail.html:39
+msgid "Add to Cart"
+msgstr "Add to Cart"
+
+#: catalog/templates/catalog/catalog.html:41
+#: catalog/templates/catalog/product_detail.html:41
+msgid "Out of Stock"
+msgstr "Out of Stock"
+
+#: catalog/templates/catalog/catalog.html:57
+msgid "First"
+msgstr "First"
+
+#: catalog/templates/catalog/catalog.html:58
+msgid "Previous"
+msgstr "Previous"
+
+#: catalog/templates/catalog/catalog.html:62
+msgid "Page"
+msgstr "Page"
+
+#: catalog/templates/catalog/catalog.html:62
+msgid "of"
+msgstr "of"
+
+#: catalog/templates/catalog/catalog.html:66
+msgid "Next"
+msgstr "Next"
+
+#: catalog/templates/catalog/catalog.html:67
+msgid "Last"
+msgstr "Last"
+
+#: catalog/templates/catalog/product_detail.html:45
+msgid "Back to Catalog"
+msgstr "Back to Catalog"
+
+#: pages/templates/pages/about.html:4 templates/partials/menu_overlay.html:11
+msgid "About Us"
+msgstr "About Us"
+
+#: pages/templates/pages/about.html:9
+msgid "About CHAYKOVSKA"
+msgstr "About CHAYKOVSKA"
+
+#: pages/templates/pages/contacts.html:4
+#: templates/partials/menu_overlay.html:12
+msgid "Contacts"
+msgstr "Contacts"
+
+#: pages/templates/pages/contacts.html:9
+msgid "Contact Us"
+msgstr "Contact Us"
+
+#: pages/templates/pages/contacts.html:10
+msgid "Visit our showroom or reach out"
+msgstr "Visit our showroom or reach out"
+
+#: pages/templates/pages/contacts.html:17
+msgid "Address"
+msgstr "Address"
+
+#: pages/templates/pages/contacts.html:36
+msgid "Working Hours"
+msgstr "Working Hours"
+
+#: pages/templates/pages/contacts.html:51
+msgid "Contact information is not available."
+msgstr "Contact information is not available."
+
+#: pages/templates/pages/home.html:4 templates/partials/menu_overlay.html:9
+msgid "Home"
+msgstr "Home"
+
+#: pages/templates/pages/home.html:12
+msgid "Image 1"
+msgstr "Image 1"
+
+#: pages/templates/pages/home.html:13
+msgid "Image 2"
+msgstr "Image 2"
+
+#: pages/templates/pages/home.html:14
+msgid "Image 3"
+msgstr "Image 3"
+
+#: templates/base.html:8
+msgid "Luxury Fashion"
+msgstr "Luxury Fashion"
+
+#: templates/partials/footer.html:5
+msgid "All rights reserved."
+msgstr "All rights reserved."
+
+#: templates/partials/header.html:6
+msgid "Menu"
+msgstr "Menu"
+
+#: templates/partials/menu_overlay.html:4
+msgid "Close menu"
+msgstr "Close menu"
+
+#: templates/partials/menu_overlay.html:14
+msgid "Cart"
+msgstr "Cart"

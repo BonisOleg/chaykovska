@@ -1,0 +1,17 @@
+{% load i18n %}
+
+<nav class="nav-menu" id="nav-menu">
+    <button class="close-menu-btn" id="close-menu-btn" aria-label="{% trans 'Close menu' %}">
+        <span class="close-icon">×</span>
+    </button>
+    
+    <ul class="nav-list">
+        <li><a href="{% url 'pages:home' %}" class="nav-btn">{% trans "Home" %}</a></li>
+        <li><a href="{% url 'catalog:catalog' %}" class="nav-btn">{% trans "Catalog" %}</a></li>
+        <li><a href="{% url 'pages:about' %}" class="nav-btn">{% trans "About Us" %}</a></li>
+        <li><a href="{% url 'pages:contacts' %}" class="nav-btn">{% trans "Contacts" %}</a></li>
+        <li><a href="{% url 'cart:cart' %}" class="nav-btn">
+            {% trans "Cart" %} <span id="cart-count" class="cart-count">{{ cart_count }}</span>
+        </a></li>
+    </ul>
+</nav>

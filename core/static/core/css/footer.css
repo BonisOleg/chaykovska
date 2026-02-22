@@ -1,0 +1,45 @@
+/* ============================================================================
+   FOOTER.CSS - Footer Styling
+   ============================================================================ */
+
+.footer {
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-content p {
+    margin: var(--spacing-sm) 0;
+}
+
+.footer-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.footer-content a:hover {
+    opacity: 0.7;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .footer {
+        padding: var(--spacing-md);
+    }
+
+    .footer-content {
+        font-size: 0.85rem;
+    }
+}

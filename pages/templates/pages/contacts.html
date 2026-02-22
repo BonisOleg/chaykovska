@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}CHAYKOVSKA - {% trans "Contacts" %}{% endblock %}
+
+{% block content %}
+<div class="contacts-container">
+    <div class="contacts-header">
+        <h1>{% trans "Contact Us" %}</h1>
+        <p>{% trans "Visit our showroom or reach out" %}</p>
+    </div>
+    
+    {% if contact_info %}
+        <div class="contacts-content">
+            <div class="contacts-info">
+                <div class="contact-block">
+                    <span class="contact-label">{% trans "Address" %}</span>
+                    <span class="contact-value">{{ contact_info.address }}</span>
+                </div>
+                
+                <div class="contact-block">
+                    <span class="contact-label">{% trans "Phone" %}</span>
+                    <span class="contact-value">
+                        <a href="tel:{{ contact_info.phone }}">{{ contact_info.phone }}</a>
+                    </span>
+                </div>
+                
+                <div class="contact-block">
+                    <span class="contact-label">{% trans "Email" %}</span>
+                    <span class="contact-value">
+                        <a href="mailto:{{ contact_info.email }}">{{ contact_info.email }}</a>
+                    </span>
+                </div>
+                
+                <div class="contact-block">
+                    <span class="contact-label">{% trans "Working Hours" %}</span>
+                    <span class="contact-value">{{ contact_info.working_hours }}</span>
+                </div>
+            </div>
+            
+            {% if contact_info.map_url %}
+                <div class="contacts-map">
+                    <iframe src="{{ contact_info.map_url }}" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <p>{% trans "Contact information is not available." %}</p>
+    {% endif %}
+</div>
+{% endblock %}

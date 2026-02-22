@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}CHAYKOVSKA - {% trans "About Us" %}{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <div class="about-header">
+        <h1>{% trans "About CHAYKOVSKA" %}</h1>
+    </div>
+    
+    <div class="tabs-nav" role="tablist">
+        {% for section in sections %}
+            <button class="tab-btn {% if forloop.first %}active{% endif %}" 
+                    role="tab"
+                    data-tab="tab-{{ section.section_type }}">
+                {{ section.get_section_type_display }}
+            </button>
+        {% endfor %}
+    </div>
+    
+    <div class="tabs-content">
+        {% for section in sections %}
+            <div class="tab-panel {% if forloop.first %}active{% endif %}" 
+                 id="tab-{{ section.section_type }}"
+                 role="tabpanel">
+                {% if section.image %}
+                    <img src="{{ section.image.url }}" alt="{{ section.title }}" class="tab-image" loading="lazy">
+                {% endif %}
+                <div class="tab-text">
+                    <h2>{{ section.title }}</h2>
+                    <p>{{ section.content }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

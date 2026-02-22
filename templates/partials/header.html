@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load i18n_helpers %}
+
+<header class="header" id="header">
+    <div class="header-content">
+        <button class="burger-menu" id="burger-menu" aria-label="{% trans 'Menu' %}" aria-expanded="false">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
+        
+        <div class="header-logo">
+            {% if site_settings.logo %}
+                <img src="{{ site_settings.logo.url }}" alt="CHAYKOVSKA" class="header-logo-img">
+            {% else %}
+                <span class="header-logo-text">CHAYKOVSKA</span>
+            {% endif %}
+        </div>
+        
+        <div class="header-right">
+            {% if site_settings.phone_number %}
+                <a href="tel:{{ site_settings.phone_number }}" class="header-phone">
+                    {{ site_settings.phone_number }}
+                </a>
+            {% endif %}
+            
+            <div class="language-selector">
+                {% get_available_languages as languages %}
+                {% get_language_code as current_language %}
+                <select id="language-select" class="lang-select">
+                    {% for code, name in languages %}
+                        <option value="{{ code }}" {% if code == current_language %}selected{% endif %}>
+                            {{ name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'partials/menu_overlay.html' %}
+</header>

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}CHAYKOVSKA - {% trans "Catalog" %}{% endblock %}
+
+{% block content %}
+<div class="catalog-container">
+    <div class="catalog-header">
+        <h1>{% trans "Our Collection" %}</h1>
+    </div>
+    
+    <div class="catalog-grid">
+        {% for product in products %}
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    {% if product.images.first %}
+                        <img src="{{ product.images.first.image.url }}" 
+                             alt="{{ product.name }}" 
+                             class="product-image"
+                             loading="lazy">
+                    {% else %}
+                        <div class="product-no-image">
+                            <span>{% trans "No image" %}</span>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="product-info">
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    <p class="product-price">{{ product.price }} ₴</p>
+                    
+                    <div class="product-actions">
+                        <button class="btn-add-to-cart"
+                                hx-post="{% url 'cart:add' product.id %}"
+                                hx-target="#cart-summary"
+                                hx-swap="outerHTML"
+                                {% if not product.is_available %}disabled{% endif %}>
+                            {% if product.is_available %}
+                                {% trans "Add to Cart" %}
+                            {% else %}
+                                {% trans "Out of Stock" %}
+                            {% endif %}
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-details">
+                    <p>{{ product.description|truncatewords:20 }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    {% if page_obj %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">{% trans "First" %}</a>
+                <a href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
+            {% endif %}
+            
+            <span>
+                {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}
+            </span>
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last" %}</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

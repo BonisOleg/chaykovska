@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ product.name }} - CHAYKOVSKA{% endblock %}
+
+{% block content %}
+<div class="product-detail-container">
+    <div class="product-detail-grid">
+        <div class="product-images-gallery">
+            {% if product.images.all %}
+                <div class="product-main-image">
+                    <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" id="main-product-image" loading="eager">
+                </div>
+                {% if product.images.count > 1 %}
+                    <div class="product-thumbnails">
+                        {% for img in product.images.all %}
+                            <img src="{{ img.image.url }}" alt="{{ product.name }} {{ forloop.counter }}" class="thumbnail" data-full="{{ img.image.url }}">
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+        
+        <div class="product-detail-info">
+            <h1>{{ product.name }}</h1>
+            <p class="product-detail-price">{{ product.price }} ₴</p>
+            <p class="product-detail-category">{{ product.category.name }}</p>
+            <div class="product-detail-description">
+                <p>{{ product.description }}</p>
+            </div>
+            
+            <div class="product-detail-actions">
+                <button class="btn-add-to-cart" 
+                        hx-post="{% url 'cart:add' product.id %}"
+                        hx-target="#cart-count"
+                        hx-swap="outerHTML"
+                        {% if not product.is_available %}disabled{% endif %}>
+                    {% if product.is_available %}
+                        {% trans "Add to Cart" %}
+                    {% else %}
+                        {% trans "Out of Stock" %}
+                    {% endif %}
+                </button>
+                <a href="{% url 'catalog:catalog' %}" class="btn-back-catalog">
+                    {% trans "Back to Catalog" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
