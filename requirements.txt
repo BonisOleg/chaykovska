@@ -8,3 +8,4 @@ psycopg2-binary==2.9.10
 python-dotenv==1.0.1
 whitenoise==6.8.2
 Pillow==12.1.0
+dj-database-url==2.3.0
