@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load i18n_helpers %}
+{% load static %}
 
 <header class="header" id="header">
     <div class="header-content">
@@ -10,11 +11,12 @@
         </button>
         
         <div class="header-logo">
-            {% if site_settings.logo %}
-                <img src="{{ site_settings.logo.url }}" alt="CHAYKOVSKA" class="header-logo-img">
-            {% else %}
-                <span class="header-logo-text">CHAYKOVSKA</span>
-            {% endif %}
+            <a href="/">
+                <picture>
+                    <source srcset="{% static 'img/logo.webp' %}" type="image/webp">
+                    <img src="{% static 'img/logo.png' %}" alt="CHAYKOVSKA" class="header-logo-img">
+                </picture>
+            </a>
         </div>
         
         <div class="header-right">
@@ -27,13 +29,14 @@
             <div class="language-selector">
                 {% get_available_languages as languages %}
                 {% get_language_code as current_language %}
-                <select id="language-select" class="lang-select">
+                <div class="lang-toggle">
                     {% for code, name in languages %}
-                        <option value="{{ code }}" {% if code == current_language %}selected{% endif %}>
-                            {{ name }}
-                        </option>
+                        <button class="lang-btn {% if code == current_language %}lang-btn--active{% endif %}"
+                                data-lang="{{ code }}">
+                            {{ code|upper }}
+                        </button>
                     {% endfor %}
-                </select>
+                </div>
             </div>
         </div>
     </div>

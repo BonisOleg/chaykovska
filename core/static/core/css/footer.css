@@ -23,6 +23,16 @@
     margin: var(--spacing-sm) 0;
 }
 
+.footer-logo {
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-logo-img {
+    max-width: 240px;
+    height: auto;
+    filter: brightness(0) invert(0); /* Ensure it's black if needed, or adjust as per design */
+}
+
 .footer-content a {
     color: var(--color-accent);
     text-decoration: none;

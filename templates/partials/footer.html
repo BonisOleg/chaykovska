@@ -1,7 +1,14 @@
 {% load i18n %}
+{% load static %}
 
 <footer class="footer">
     <div class="footer-content">
+        <div class="footer-logo">
+            <picture>
+                <source srcset="{% static 'img/logo.webp' %}" type="image/webp">
+                <img src="{% static 'img/logo.png' %}" alt="CHAYKOVSKA" class="footer-logo-img" loading="lazy">
+            </picture>
+        </div>
         <p>&copy; 2026 CHAYKOVSKA. {% trans "All rights reserved." %}</p>
         {% if site_settings.email %}
             <p><a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></p>
