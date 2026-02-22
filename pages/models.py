@@ -12,7 +12,14 @@ class MosaicCell(models.Model):
         ('full_width', _('Full Width (2 cols)')),
         ('double_height', _('Double Height (2 rows)')),
     ]
-    
+
+    DIRECTION_CHOICES = [
+        ('right', _('From Right → (new enters from right)')),
+        ('left', _('From Left ← (new enters from left)')),
+        ('top', _('From Top ↑ (new enters from top)')),
+        ('bottom', _('From Bottom ↓ (new enters from bottom)')),
+    ]
+
     position = models.PositiveIntegerField(
         unique=True,
         help_text='Cell position 1-12 (6 rows x 2 cols)'
@@ -23,6 +30,13 @@ class MosaicCell(models.Model):
         default='half'
     )
     
+    slide_direction = models.CharField(
+        max_length=10,
+        choices=DIRECTION_CHOICES,
+        default='right',
+        help_text='Direction the new image enters from on hover'
+    )
+
     image_1 = CloudinaryField(
         'image_1',
         help_text='First image to rotate'

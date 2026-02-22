@@ -7,6 +7,7 @@
 <div class="mosaic-container">
     {% for cell in mosaic_cells %}
         <div class="mosaic-cell {% if cell.size_type == 'full_width' %}full-width{% elif cell.size_type == 'double_height' %}double-height{% endif %}"
+             data-direction="{{ cell.slide_direction }}"
              {% if cell.link %}data-link="{{ cell.link }}"{% endif %}>
             <div class="mosaic-images">
                 <img src="{{ cell.image_1.url }}" alt="{% trans 'Image 1' %}" class="mosaic-image active" loading="lazy">

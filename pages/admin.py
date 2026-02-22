@@ -17,6 +17,11 @@ class MosaicCellAdmin(admin.ModelAdmin):
         ('Images (3 rotating)', {
             'fields': ('image_1', 'image_2', 'image_3')
         }),
+        ('Slide Direction', {
+            'fields': ('slide_direction',),
+            'classes': ('collapse',),
+            'description': 'Direction the new image enters from on hover (push transition)'
+        }),
         ('Link (optional)', {
             'fields': ('link',),
             'classes': ('collapse',)
